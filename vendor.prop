@@ -158,6 +158,7 @@ vendor.opengles.version=196610
 persist.backup.ntpServer=0.pool.ntp.org
 
 # Media
+debug.stagefright.c2inputsurface=-1
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 vendor.mm.enable.qcom_parser=16777215
 
