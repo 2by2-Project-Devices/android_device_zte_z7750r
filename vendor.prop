@@ -222,8 +222,5 @@ ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 
-# SSR
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
 # Zygote
 zygote.critical_window.minute=10
