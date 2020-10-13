@@ -72,6 +72,19 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libstdc++.so', 'libstdc++_vendor.so')
         .add_needed('libcomparetf2_shim.so'),
     (
+        'vendor/lib64/egl/libq3dtools_esx.so',
+        'vendor/lib64/libcamxncs.so',
+        'vendor/lib64/libgpudataproducer.so',
+        'vendor/lib64/libportrait_bokeh.so',
+        'vendor/lib64/libssc.so',
+        'vendor/lib64/libVkLayer_q3dtools.so',
+        'vendor/lib64/libwvhidl.so',
+        'vendor/lib64/mediadrm/libwvdrmengine.so',
+        'vendor/lib64/qtimutex.so',
+    ): blob_fixup()
+        .add_needed('libcomparetf2_shim.so'),
+    (
+        'vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti',
         'vendor/lib64/com.qti.feature2.anchorsync.so',
         'vendor/lib64/com.qti.feature2.demux.so',
         'vendor/lib64/com.qti.feature2.frameselect.so',
@@ -87,27 +100,19 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/com.qti.feature2.serializer.so',
         'vendor/lib64/com.qti.feature2.stub.so',
         'vendor/lib64/com.qti.feature2.swmf.so',
-        'vendor/lib64/egl/libq3dtools_esx.so',
         'vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so',
         'vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so',
         'vendor/lib64/hw/com.qti.chi.override.so',
         'vendor/lib64/libbluetooth_audio_session_qti.so',
-        'vendor/lib64/libcamxncs.so',
-        'vendor/lib64/libgpudataproducer.so',
         'vendor/lib64/liblearningmodule.so',
-        'vendor/lib64/libportrait_bokeh.so',
         'vendor/lib64/libqcrilFramework.so',
         'vendor/lib64/libril-qc-hal-qmi.so',
         'vendor/lib64/libsensorcal.so',
-        'vendor/lib64/libssc.so',
-        'vendor/lib64/libVkLayer_q3dtools.so',
-        'vendor/lib64/libwvhidl.so',
-        'vendor/lib64/mediadrm/libwvdrmengine.so',
-        'vendor/lib64/qtimutex.so',
         'vendor/lib64/sensors.ssc.so',
         'vendor/lib64/unnhal-acc-hvx.so',
     ): blob_fixup()
-        .add_needed('libcomparetf2_shim.so'),
+        .add_needed('libcomparetf2_shim.so')
+        .add_needed('qtimutex.so'),
     'vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so': blob_fixup()
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     (
