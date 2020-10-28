@@ -205,3 +205,6 @@ ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Zygote
+zygote.critical_window.minute=10
