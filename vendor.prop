@@ -120,6 +120,9 @@ vendor.hw.fm.init=0
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# FUSE passthrough
+persist.sys.fuse.passthrough.enable=true
+
 # HVDCP
 persist.vendor.cp.fcc_main_ua=200000
 persist.vendor.cp.iadp_init_cc_mode_ma=5000
