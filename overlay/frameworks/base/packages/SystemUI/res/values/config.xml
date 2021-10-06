@@ -28,4 +28,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <resources>
     <!-- Enable doze mode -->
     <bool name="doze_display_state_supported">true</bool>
+
+    <!-- The Enrollment Progress bar for UDFPS sensor in pixels -->
+    <integer name="config_udfpsEnrollProgressBar" translatable="false">99</integer>
 </resources>
