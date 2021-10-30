@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.tenet
+    android.hardware.biometrics.fingerprint@2.3-service.tenet
 
 # Bluetooth
 PRODUCT_PACKAGES += \
