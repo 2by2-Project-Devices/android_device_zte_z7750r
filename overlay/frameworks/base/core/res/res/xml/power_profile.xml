@@ -5,6 +5,10 @@
     <item name="screen.full">450</item>
     <item name="bluetooth.active">80</item>
     <item name="bluetooth.on">2</item>
+    <item name="bluetooth.controller.idle">3</item>
+    <item name="bluetooth.controller.rx">20</item>
+    <item name="bluetooth.controller.tx">33</item>
+    <item name="bluetooth.controller.voltage">3700</item>
     <item name="wifi.on">3</item>
     <item name="wifi.active">200</item>
     <item name="wifi.scan">100</item>
