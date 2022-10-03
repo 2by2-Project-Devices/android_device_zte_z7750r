@@ -181,7 +181,6 @@ PRODUCT_PACKAGES += \
     gralloc.lito \
     memtrack.lito \
     libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
     libqdMetaData \
     libsdmcore \
     libsdmutils \
