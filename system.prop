@@ -2,7 +2,6 @@
 persist.bluetooth.disableinbandringing=false
 
 # Camera
-vendor.camera.aux.packagelist=com.zte.camera,com.zte.burntest.camera,org.codeaurora.snapcam,com.zte.zftdoctor
 persist.camera.expose.aux=1
 
 # Charger
