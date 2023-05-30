@@ -37,15 +37,6 @@ limitations under the License.
         <MediaCodec name="OMX.qcom.video.encoder.hevc.cq" type="video/hevc" update="true">
             <Limit name="measured-frame-rate-320x240" range="340-400" />
         </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.h263sw" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="260-285" />
-            <Limit name="measured-frame-rate-352x288" range="130-385" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.mpeg4sw" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-176x144" range="310-390" />
-            <Limit name="measured-frame-rate-352x288" range="115-360" />
-            <Limit name="measured-frame-rate-640x480" range="70-106" />
-        </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" update="true">
             <Limit name="measured-frame-rate-320x180" range="339-486" />
             <Limit name="measured-frame-rate-640x360" range="203-291" />
@@ -82,21 +73,12 @@ limitations under the License.
             <Limit name="measured-frame-rate-1280x720" range="350-400" />
             <Limit name="measured-frame-rate-1920x1088" range="180-190" />
         </MediaCodec>
-            <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" update="true">
+        <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" update="true">
             <Limit name="measured-frame-rate-352x288" range="1280-1500" />
             <Limit name="measured-frame-rate-720x480" range="1390-1420" />
             <Limit name="measured-frame-rate-1280x720" range="200-390" />
             <Limit name="measured-frame-rate-1920x1080" range="210-230" />
             <Limit name="measured-frame-rate-3840x2160" range="65-75" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qti.video.decoder.h263sw" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="358-837" />
-            <Limit name="measured-frame-rate-352x288" range="321-456" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qti.video.decoder.mpeg4sw" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-176x144" range="374-542" />
-            <Limit name="measured-frame-rate-480x360" range="245-265" />
-            <Limit name="measured-frame-rate-1280x720" range="80-200" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" update="true">
             <Limit name="measured-frame-rate-320x240" range="560-816" />
