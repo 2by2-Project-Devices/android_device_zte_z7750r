@@ -194,7 +194,7 @@ BOOT_SECURITY_PATCH := 2022-05-01
 VENDOR_SECURITY_PATCH := 2022-05-01
 
 # SEPolicy
-include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
+include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Verified Boot
