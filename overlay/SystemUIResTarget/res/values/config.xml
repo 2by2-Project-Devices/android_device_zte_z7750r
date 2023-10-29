@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2022 The Linux Foundation
-     SPDX-License-Identifier: BSD-3-Clause
--->
-<resources>
-    <!-- The Enrollment Progress bar for UDFPS sensor in pixels -->
-    <integer name="config_udfpsEnrollProgressBar" translatable="false">99</integer>
-</resources>
