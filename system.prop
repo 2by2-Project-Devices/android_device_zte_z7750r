@@ -4,9 +4,6 @@ persist.bluetooth.disableinbandringing=false
 # Camera
 persist.camera.expose.aux=1
 
-# Charger
-ro.charger.enable_suspend=1
-
 # CNE
 persist.vendor.cne.feature=1
 
