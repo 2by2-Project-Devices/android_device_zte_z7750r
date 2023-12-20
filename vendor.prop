@@ -82,6 +82,10 @@ camera.disable_zsl_mode=true
 vendor.camera.hal1.forceenable=false
 vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram,us.zoom.videomeetings
 
+# Chipset
+ro.soc.manufacturer=QTI
+ro.soc.model=SM7250
+
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.filenames_mode=aes-256-cts
