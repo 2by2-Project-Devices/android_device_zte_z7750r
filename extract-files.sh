@@ -65,6 +65,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system_ext/lib64/libwfdnative.so)
+            [ "$2" = "" ] && return 0
+            sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+            ;;
         # Add shim for missing symbol in lib-imsvt.so
         system_ext/lib64/lib-imsvideocodec.so)
             [ "$2" = "" ] && return 0
