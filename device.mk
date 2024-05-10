@@ -15,11 +15,19 @@ $(call inherit-product, vendor/zte/tenet/tenet-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
+PRODUCT_PACKAGES += \
+    CarrierConfigResCommon \
+    FrameworksResCommon \
+    FrameworksResTarget \
+    SettingsProviderResCommon \
+    SettingsResCommon \
+    SystemUIResCommon \
+    SystemUIResTarget \
+    TelephonyResCommon \
+    WifiResCommon
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -420,7 +428,6 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
-    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 
