@@ -317,8 +317,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Partitions
-BOARD_BUILD_SUPER_IMAGE := true
-BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
