@@ -92,9 +92,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     update_engine \
-    update_engine_client \
     update_verifier \
     update_engine_sideload
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
 
 # Audio
 PRODUCT_PACKAGES += \
