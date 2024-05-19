@@ -5,8 +5,3 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_tenet.mk
-
-COMMON_LUNCH_CHOICES := \
-    lineage_tenet-user \
-    lineage_tenet-userdebug \
-    lineage_tenet-eng
