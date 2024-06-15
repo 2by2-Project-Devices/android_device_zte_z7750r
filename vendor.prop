@@ -80,6 +80,7 @@ ro.vendor.bluetooth.wipower=false
 # Camera
 camera.disable_zsl_mode=true
 vendor.camera.hal1.forceenable=false
+vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram,us.zoom.videomeetings
 
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
