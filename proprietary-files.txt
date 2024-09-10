@@ -1320,7 +1320,7 @@ vendor/lib64/vendor.qti.hardware.vpp@1.3.so
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
-vendor/lib64/libwvhidl.so
+vendor/lib64/libwvhidl.so|ad7b26bda12d643ee75bd05515c1255aefb28393
 vendor/lib64/mediadrm/libwvdrmengine.so
 
 # WiFi
