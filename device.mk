@@ -366,8 +366,5 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # WiFi Display
-PRODUCT_PACKAGES += \
-    libwfdaac_vendor
-
 PRODUCT_BOOT_JARS += \
     WfdCommon
