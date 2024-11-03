@@ -71,16 +71,11 @@ vendor/lib/libcomprcapture.so
 vendor/lib/libdts-eagle-shared.so
 vendor/lib/libdtsdsec.so
 vendor/lib/libexthwplugin.so
-vendor/lib/libexthwplugin.so
 vendor/lib/libhdmiedid.so
-vendor/lib/libhdmiedid.so
-vendor/lib/libhfp.so
 vendor/lib/libhfp.so
 vendor/lib/libomx-dts.so
 vendor/lib/libqtigef.so
 vendor/lib/libsndmonitor.so
-vendor/lib/libsndmonitor.so
-vendor/lib/libspkrprot.so
 vendor/lib/libspkrprot.so
 vendor/lib/libssrec.so
 vendor/lib/soundfx/libasphere.so
@@ -348,7 +343,7 @@ vendor/lib64/libpowercallback.so
 vendor/lib64/libpowercore.so
 vendor/lib64/libremosaic_wrapper.so
 vendor/lib64/libremosaiclib.so
-vendor/lib64/libskia.so;MODULE_SUFFIX=-vendor
+vendor/lib64/libskia.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libskia_watermark.so
 vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsnsapi.so
@@ -509,7 +504,7 @@ system_ext/lib64/libdpmtcm.so
 system_ext/lib64/vendor.qti.diaghal@1.0.so
 vendor/bin/dpmQmiMgr
 vendor/etc/init/dpmQmiMgr.rc
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 
 # DRM
@@ -751,7 +746,7 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
-vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor
 
 # IO Prefetcher
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
@@ -1394,7 +1389,7 @@ vendor/etc/seccomp_policy/wfdvndservice.policy
 vendor/etc/seccomp_policy/wifidisplayhalservice.policy
 vendor/etc/wfdconfig.xml
 vendor/lib/libFileMux_proprietary.so
-vendor/lib/libmmosal.so;MODULE_SUFFIX=-vendor
+vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
 vendor/lib/libmmrtpdecoder_proprietary.so
 vendor/lib/libmmrtpencoder_proprietary.so
 vendor/lib/libwfdcodecv4l2_proprietary.so
@@ -1417,6 +1412,6 @@ vendor/lib/libwfduibcsinkinterface_proprietary.so
 vendor/lib/libwfduibcsrc_proprietary.so
 vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfdutils_proprietary.so
-vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=-vendor
+vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
-vendor/lib64/libmmosal.so;MODULE_SUFFIX=-vendor
+vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
