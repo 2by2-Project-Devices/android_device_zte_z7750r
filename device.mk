@@ -174,7 +174,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.renderscript@1.0-impl \
-    gralloc.lito \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
     libqdMetaData \
     libsdmcore \
     libsdmutils \
