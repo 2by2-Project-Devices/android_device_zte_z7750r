@@ -44,6 +44,19 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
         .add_needed('lib-imsvtshim.so'),
+    'vendor/lib64/libFNVfbEngineHAL.so': blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+    'vendor/lib64/libZEffectLib.so': blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_lockPlanes')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
     'vendor/lib64/hw/fingerprint.gf95xx.so': blob_fixup()
         .binary_regex_replace(b'libfingerprint.default.so\x00', b'fingerprint.gf95xx.so\x00\x00\x00\x00\x00')
         .binary_regex_replace(b'fingerprint.gf95xx\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00'),

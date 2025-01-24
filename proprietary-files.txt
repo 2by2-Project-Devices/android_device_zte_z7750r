@@ -292,8 +292,8 @@ vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.bitra.so
 vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/libFNVfbEngineHAL.so;DISABLE_CHECKELF
-vendor/lib64/libZEffectLib.so;DISABLE_CHECKELF
+vendor/lib64/libFNVfbEngineHAL.so|cdcda4243bf955bad48e19e354948e2191840723
+vendor/lib64/libZEffectLib.so|3bdbe8b97cf82b55e3702402550d7a899633952f
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_dualcam_portraitlighting.so
 vendor/lib64/libarcsoft_dualcam_refocus_image.so
