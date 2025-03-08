@@ -1,9 +1,6 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
 ## are from Axon 31 5G (GEN_ZTE_P768A02V1.0.1B04).
 
-# Current blobs with ELF checks disabled:
-# imsdatadaemon, libcne, libwqe, lowi-server, mutualex depend on libwpa_client, which is a gnu makefile target
-
 # ACDB
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
@@ -384,7 +381,7 @@ vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 # CNE
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
 vendor/bin/cnd
-vendor/bin/mutualex;DISABLE_CHECKELF
+vendor/bin/mutualex
 vendor/etc/cne/mwqem.conf
 vendor/etc/cne/profileMwqem.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
@@ -418,12 +415,12 @@ vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/mutualex.rc
 vendor/lib/libxml.so
-vendor/lib64/libcne.so;DISABLE_CHECKELF
+vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwms.so
-vendor/lib64/libwqe.so;DISABLE_CHECKELF
+vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
@@ -565,7 +562,7 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/app/CACertService/CACertService.apk
 vendor/bin/hw/android.hardware.gnss@2.1-service-qti
 vendor/bin/loc_launcher
-vendor/bin/lowi-server;DISABLE_CHECKELF
+vendor/bin/lowi-server
 vendor/bin/xtra-daemon
 vendor/etc/cacert_location.pem
 vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
@@ -698,7 +695,7 @@ system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/li
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/priv-app/ims/ims.apk|bc846227c77a24413d83b28f2d42d700ff152d49
 vendor/bin/ims_rtp_daemon
-vendor/bin/imsdatadaemon;DISABLE_CHECKELF
+vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
 vendor/etc/init/ims_rtp_daemon.rc
