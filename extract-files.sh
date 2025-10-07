@@ -8,8 +8,8 @@
 
 set -e
 
-DEVICE=FP4
-VENDOR=fairphone
+DEVICE=tenet
+VENDOR=zte
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

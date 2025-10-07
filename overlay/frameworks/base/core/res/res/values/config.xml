@@ -165,7 +165,7 @@
     <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
 
     <!-- MMS user agent prolfile url -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">https://techsupport.fairphone.com/uap/fp4_UAP.xml</string>
+    <string name="config_mms_user_agent_profile_url" translatable="false">https://res-www.zte.com.cn/bigmediafiles/device/uaprof/ZTE_A2122H.xml</string>
 
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
