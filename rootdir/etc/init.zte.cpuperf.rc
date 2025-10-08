@@ -1,0 +1,60 @@
+# zte add for performance
+# lito SM7250
+# Performance optimization extension centralized modification for easy to maintain and porting, reduce conflict and redundancy.
+#
+
+# for input boost perf
+on property:mindsync.perf.cpu.input.boost.freq=0
+    write /sys/devices/system/cpu/cpu_boost/input_boost_freq "0:1075200 1:0 2:0 3:0 4:0 5:0 6:0 7:0"
+
+on property:mindsync.perf.cpu.input.boost.freq=1
+    write /sys/devices/system/cpu/cpu_boost/input_boost_freq "0:1363200 1:0 2:0 3:0 4:0 5:0 6:1094400 7:0"
+
+on property:mindsync.perf.cpu.input.boost.ms=0
+    write /sys/devices/system/cpu/cpu_boost/input_boost_ms "120"
+
+on property:mindsync.perf.cpu.input.boost.ms=1
+    write /sys/devices/system/cpu/cpu_boost/input_boost_ms "200"
+
+# for cpufreq ctrl perf
+on property:sys.boot_completed=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/cpufreq_conf "2000000:2188800:2400000"
+
+on property:mindsync.perf.cpu.cpufreq.ctrl=*
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/cpufreq_ctrl ${mindsync.perf.cpu.cpufreq.ctrl}
+
+
+# zte add for hardware boost
+on property:mindsync.perf.cpu.boost=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "performance"
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor "performance"
+
+on property:mindsync.perf.cpu.boost=0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor "schedutil"
+
+on property:mindsync.perf.cache.boost=1
+    write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw/devfreq/soc:qcom,cpu-llcc-ddr-bw/governor "performance"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu0-cpu-l3-lat/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu0-cpu-llcc-lat/devfreq/soc:qcom,cpu0-cpu-llcc-lat/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu0-llcc-ddr-lat/devfreq/soc:qcom,cpu0-llcc-ddr-lat/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-cpu-ddr-latfloor/devfreq/soc:qcom,cpu6-cpu-ddr-latfloor/governor "performance"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu6-cpu-l3-lat/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-cpu-llcc-lat/devfreq/soc:qcom,cpu6-cpu-llcc-lat/governor "performance"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-llcc-ddr-lat/devfreq/soc:qcom,cpu6-llcc-ddr-lat/governor "performance"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu7-cpu-l3-lat/governor "performance"
+
+on property:mindsync.perf.cache.boost=0
+    write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor "bw_hwmon"
+    write /sys/devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw/devfreq/soc:qcom,cpu-llcc-ddr-bw/governor "bw_hwmon"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu0-cpu-l3-lat/governor "mem_latency"
+    write /sys/devices/platform/soc/soc:qcom,cpu0-cpu-llcc-lat/devfreq/soc:qcom,cpu0-cpu-llcc-lat/governor "mem_latency"
+    write /sys/devices/platform/soc/soc:qcom,cpu0-llcc-ddr-lat/devfreq/soc:qcom,cpu0-llcc-ddr-lat/governor "mem_latency"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-cpu-ddr-latfloor/devfreq/soc:qcom,cpu6-cpu-ddr-latfloor/governor "compute"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu6-cpu-l3-lat/governor "mem_latency"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-cpu-llcc-lat/devfreq/soc:qcom,cpu6-cpu-llcc-lat/governor "mem_latency"
+    write /sys/devices/platform/soc/soc:qcom,cpu6-llcc-ddr-lat/devfreq/soc:qcom,cpu6-llcc-ddr-lat/governor "mem_latency"
+    write /sys/class/devfreq/18321000.qcom,devfreq-l3:qcom,cpu7-cpu-l3-lat/governor  "mem_latency"

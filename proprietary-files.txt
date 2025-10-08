@@ -80,6 +80,7 @@ system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 
 # Camera
 vendor/etc/camera/camxoverridesettings.txt
+vendor/etc/init/camerahalvs.rc
 vendor/lib/libcamxexternalformatutils.so
 vendor/lib/libswvdec.so
 vendor/lib64/camera/components/com.qti.eisv2.so
@@ -468,6 +469,9 @@ vendor/etc/lowi.conf
 vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
 
+# IFAA
+vendor/etc/init/init.fingerprint.alipay.rc
+
 # IMS
 system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
@@ -619,6 +623,7 @@ vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
 # NFC
+vendor/etc/init/init.nfc.st54j.rc
 vendor/lib64/nfc_nci.st21nfc.st.so
 
 # NFC configs
@@ -721,6 +726,12 @@ vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
+
+# QCV
+vendor/bin/init.qti.qcv.sh
+vendor/etc/init/init.qti.qcv.rc
+vendor/lib64/libsoc_helper.so
+vendor/lib64/libsoc_helper_jni.so
 
 # QMI
 etc/permissions/privapp-permissions-qti.xml
