@@ -368,7 +368,8 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
+    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc
 
 # Rootdir
 PRODUCT_PACKAGES += \
@@ -389,6 +390,7 @@ PRODUCT_PACKAGES += \
     init.stnfc.rc \
     init.target.rc \
     fstab.default \
+    fstab.emmc \
     ueventd.qcom.rc
 
 # Shipping API
