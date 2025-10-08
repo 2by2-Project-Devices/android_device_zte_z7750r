@@ -17,6 +17,9 @@
 -->
 <Included>
     <Decoders>
+        <!-- DTS_CODEC_M_ START -->
+        <MediaCodec name="OMX.dts.audio.decoder" type="audio/dts" />
+        <!-- DTS_CODEC_M_ END -->
         <MediaCodec name="OMX.google.opus.decoder" type="audio/opus" update="true" rank="100"/>
         <!-- SimpleOMXComponet based software decoder-->
     </Decoders>
