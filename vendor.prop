@@ -6,7 +6,7 @@ persist.vendor.audio.ambisonic.auto.profile=false
 persist.vendor.audio.ambisonic.capture=false
 persist.vendor.audio.apptype.multirec.enabled=false
 persist.vendor.audio.avs.afe_api_version=2
-persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.speaker=false
 persist.vendor.audio.fluence.tmic.enabled=false
 persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicecomm=true
@@ -33,7 +33,6 @@ vendor.audio.offload.track.enable=true
 vendor.audio.parser.ip.buffer.size=262144
 vendor.audio.safx.pbe.enabled=false
 vendor.audio.tunnel.encode=false
-vendor.audio.usb.disable.sidetone=true
 vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
 vendor.audio.use.sw.mpegh.decoder=true
@@ -43,13 +42,18 @@ vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
+# Battery
+ro.vendor.build.battery_5g_save=1
+
 # Bluetooth
+bt.avrcp-playstatus.blacklist=true
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=true
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
 persist.vendor.bt.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
+persist.vendor.bt.nap.enable=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aptxadaptiver2_1_support=false
@@ -57,9 +61,13 @@ persist.vendor.qcom.bluetooth.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.scram.enabled=false
 persist.vendor.qcom.bluetooth.soc=cherokee
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
-persist.vendor.service.bdroid.soc.alwayson=true
+qcom.bt.dev_power_class=1
 ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
+
+# Camera
+camera.disable_zsl_mode=true
+vendor.camera.hal1.forceenable=false
 
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
@@ -72,19 +80,19 @@ vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
+vendor.display.disable_rounded_corner=1
 vendor.display.disable_scaler=0
-vendor.display.enable_allow_idle_fallback=1
 vendor.display.enable_async_powermode=1
-vendor.display.enable_camera_smooth=1
 vendor.display.enable_optimize_refresh=1
 vendor.display.enable_perf_hint_large_comp_cycle=1
 vendor.display.enable_posted_start_dyn=1
 vendor.display.use_smooth_motion=1
 
 # DRM
-drm.service.enabled=true
+drm.service.enabled=1
 
 # DPM
+persist.vendor.dpm.feature=7
 persist.vendor.dpmhalservice.enable=1
 
 # FM
@@ -93,9 +101,17 @@ vendor.hw.fm.init=0
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# HVDCP
+persist.vendor.cp.fcc_main_ua=200000
+persist.vendor.cp.iadp_init_cc_mode_ma=5000
+
+# Incremental FS
+ro.incremental.enable=1
+
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
+debug.sf.disable_backpressure=1
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
 debug.sf.high_fps_early_phase_offset_ns=-4000000
@@ -112,7 +128,7 @@ persist.sys.sf.color_saturation=1.0
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.lito.api30
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
-#ro.opengles.version=196610
+ro.opengles.version=196610
 vendor.gralloc.disable_ubwc=0
 vendor.opengles.version=196610
 
@@ -123,15 +139,16 @@ persist.backup.ntpServer=0.pool.ntp.org
 debug.stagefright.ccodec=1
 debug.stagefright.omx_default_rank=0
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+vendor.mm.enable.qcom_parser=16777215
 
 # Netflix
 ro.netflix.bsp_rev=Q7250-19133-1
 
-# OEM Unlock
-ro.oem_unlock_supported=1
-
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
+
+# QSPM
+ro.vendor.qspm.enable=true
 
 # PASR
 vendor.pasr.activemode.enabled=true
@@ -139,17 +156,28 @@ vendor.power.pasr.enabled=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+vendor.debug.trace.perf=1
 
 # Radio
 persist.radio.multisim.config=dsds
+persist.radio.sap_silent_pin=true
+persist.vendor.radio.5g_icon_rule=D
+persist.vendor.radio.5g_mode_pref=0
+persist.vendor.radio.add_power_save=1
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.ct_cf_ut_first=true
 persist.vendor.radio.enableadvancedscan=true
+persist.vendor.radio.mt_sms_ack=30
+persist.vendor.radio.nsa_cell_size=10
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
+persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.sib16_support=1
-ro.com.android.dataroaming=true
-ro.telephony.iwlan_operation_mode=AP-assisted
+persist.vendor.radio.voice_on_lte=1
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+ro.com.android.dataroaming=false
+ro.telephony.default_network=33,33
 
 # Sensors
 persist.vendor.sensors.debug.ssc_qmi_debug=true
@@ -159,11 +187,9 @@ persist.vendor.sensors.allow_non_default_discovery=true
 sys.vendor.shutdown.waittime=500
 
 # USB
+persist.sys.usb.dp=true
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
-
-# WiFi
-wifi.aware.interface=wifi-aware0
 
 # Surface Flinger
 ro.surface_flinger.has_wide_color_display=true
@@ -173,3 +199,6 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+
+# SSR
+persist.vendor.ssr.restart_level=ALL_ENABLE
