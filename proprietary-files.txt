@@ -520,7 +520,7 @@ vendor/bin/feature_enabler_client
 vendor/etc/init/feature_enabler_client.rc
 
 # Fingerprint
-vendor/lib64/hw/fingerprint.gf95xx.default.so
+vendor/lib64/hw/fingerprint.gf95xx.default.so:vendor/lib64/hw/fingerprint.gf95xx.so|c5b18e6f02d867a0ea543916291f10deca25dbee
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
 

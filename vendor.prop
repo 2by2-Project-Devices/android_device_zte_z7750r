@@ -95,6 +95,9 @@ drm.service.enabled=1
 persist.vendor.dpm.feature=7
 persist.vendor.dpmhalservice.enable=1
 
+# Fingerprint
+ro.hardware.fingerprint=gf95xx
+
 # FM
 vendor.hw.fm.init=0
 
