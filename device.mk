@@ -107,14 +107,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
-    liba2dpoffload \
-    libbatterylistener \
-    libcomprcapture \
-    libexthwplugin \
-    libhdmiedid \
-    libhfp \
-    libsndmonitor \
-    libspkrprot \
     libaudiopreprocessing \
     libbundlewrapper \
     libdownmix \
@@ -125,6 +117,7 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libreverbwrapper \
+    libtinycompress \
     libvisualizer \
     libvolumelistener
 
