@@ -61,6 +61,7 @@ function blob_fixup() {
             ;;
         vendor/lib64/hw/fingerprint.gf95xx.so)
             sed -i 's/\x00libfingerprint.default.so\x00/\x00fingerprint.gf95xx.so\x00\x00\x00\x00\x00/' "${2}"
+            sed -i 's/\x00fingerprint.gf95xx\x00/\x00fingerprint\x00\x00\x00\x00\x00\x00\x00\x00/' "${2}"
             ;;
         vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
             "${SIGSCAN}" -p "13 0a 00 94" -P "1F 20 03 D5" -f "${2}"
