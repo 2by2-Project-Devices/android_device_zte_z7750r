@@ -424,6 +424,12 @@ vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
+# Display calibration
+vendor/etc/qdcm_calib_data_Visionox-RM692A4-1080-2340-6P5Inch.xml
+vendor/etc/qdcm_calib_data_Visionox-RM692A4-nootp240nit-1080-2340-6P5Inch.xml
+vendor/etc/qdcm_calib_data_Visionox-RM692A4-otpt3-1080-2340-6P5Inch.xml
+vendor/etc/qdcm_calib_data_Visionox-RM692E1-1080-2400-6P67Inch.xml
+
 # Display (HDR) - from smith - S2PS32M.57-23-31
 vendor/lib64/libhdr_tm.so|4be3cfff1ef40cbc6ad329b79c60881263aa6723
 
