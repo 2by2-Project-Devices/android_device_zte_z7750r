@@ -799,12 +799,18 @@ vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
 # NFC
+vendor/bin/hw/android.hardware.nfc@1.2-service
+vendor/etc/init/android.hardware.nfc@1.2-service.rc
 vendor/etc/init/init.nfc.st54j.rc
 vendor/lib64/nfc_nci.st21nfc.st.so
 
 # NFC configs
 vendor/etc/libnfc-hal-st.conf
 vendor/etc/libnfc-nci.conf
+vendor/etc/st54j_conf.txt
+
+# NFC (firmware)
+vendor/firmware/st54j_fw.bin
 
 # OMX
 vendor/lib/libAlacSwDec.so
