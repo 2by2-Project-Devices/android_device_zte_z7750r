@@ -591,6 +591,7 @@ vendor/lib/hw/vulkan.adreno.so|6b6a82098b70ff03da65e98b3bb86e3afeb0e432
 vendor/lib64/hw/vulkan.adreno.so|ec8a2d6cc9e180f1e7fb34673c696870761a5f64
 
 # GNSS
+vendor/app/CACertService/CACertService.apk
 vendor/bin/hw/android.hardware.gnss@2.1-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
