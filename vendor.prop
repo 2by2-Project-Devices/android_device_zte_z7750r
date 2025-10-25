@@ -109,6 +109,10 @@ persist.vendor.dpmhalservice.enable=1
 
 # Fingerprint
 ro.hardware.fingerprint=gf95xx
+ro.vendor.feature.fingerprint_sensorui_position_center_x=540
+ro.vendor.feature.fingerprint_sensorui_position_center_y=2068
+ro.vendor.feature.fingerprint_sensorui_position_center_r=94
+ro.vendor.feature.zte_underscreen_fingerprint_enable=true
 
 # FM
 vendor.hw.fm.init=0

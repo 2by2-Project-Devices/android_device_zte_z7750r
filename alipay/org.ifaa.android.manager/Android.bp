@@ -1,0 +1,11 @@
+java_library {
+    name: "org.ifaa.android.manager",
+    installable: true,
+    srcs: [
+        "src/**/*.java",
+    ],
+
+    static_libs: [
+        "com.zte.alipay.service",
+    ],
+}

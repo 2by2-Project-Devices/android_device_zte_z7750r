@@ -660,7 +660,13 @@ vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
 
 # IFAA
+system/priv-app/AlipayService/AlipayService.apk
+vendor/bin/alikey_client
+vendor/bin/hw/vendor.zte.fingerprint.ifaahidl@1.0-service
 vendor/etc/init/init.fingerprint.alipay.rc
+vendor/etc/init/vendor.zte.fingerprint.ifaahidl@1.0-service.rc
+vendor/lib64/libteec.so
+vendor/lib64/vendor.zte.fingerprint.ifaahidl@1.0.so
 
 # IMS
 system_ext/lib64/lib-imsvideocodec.so|041df54f896402392b4ace293c5b8aa455a7075c
