@@ -1,6 +1,0 @@
-java_library {
-    name: "com.zte.alipay.service",
-    srcs: [
-        "src/**/*.java",
-    ],
-}
