@@ -128,6 +128,10 @@ PRODUCT_PACKAGES += \
     libvisualizer \
     libvolumelistener
 
+PRODUCT_PACKAGES += \
+    libaudioroute.vendor \
+    libprocessgroup.vendor
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
@@ -224,7 +228,8 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
-    android.hardware.health-service.qti_recovery
+    android.hardware.health-service.qti_recovery \
+    android.hardware.health@2.1.vendor
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -280,7 +285,7 @@ PRODUCT_COPY_FILES += \
 # Media (Codec2)
 PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
-    libcodec2_vndk.vendor \
+    libcodec2_vndk.vendor
 
 # Net
 PRODUCT_PACKAGES += \
@@ -312,6 +317,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+PRODUCT_PACKAGES += \
+    libstagefright_softomx_plugin.vendor
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -342,9 +350,12 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor:64 \
     android.hardware.radio.config@1.2.vendor:64 \
     android.hardware.radio.deprecated@1.0.vendor:64 \
+    libcurl.vendor \
     libjson \
+    libjsoncpp.vendor \
     librmnetctl \
-    libxml2
+    libxml2 \
+    libsqlite.vendor
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -418,6 +429,7 @@ $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
+    android.hardware.wifi.hostapd@1.0.vendor \
     hostapd \
     libwpa_client \
     libwifi-hal-ctrl \
@@ -437,7 +449,8 @@ PRODUCT_PACKAGES += \
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl \
-    libwfdaac_vendor
+    libwfdaac_vendor \
+    libpng.vendor
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
