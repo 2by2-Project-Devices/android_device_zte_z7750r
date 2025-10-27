@@ -5,5 +5,5 @@
 /dev/st21nfc                                                               u:object_r:nfc_device:s0
 
 # SSR
-/sys/devices/platform/soc/aab0000.qcom,venus/subsys[0-9]+/name             u:object_r:vendor_sysfs_ssr:s0
-/sys/devices/platform/soc/aab0000.qcom,venus/subsys[0-9]+/restart_level    u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/aab0000\.qcom,venus/subsys[0-9]+/name            u:object_r:vendor_sysfs_ssr:s0
+/sys/devices/platform/soc/aab0000\.qcom,venus/subsys[0-9]+/restart_level   u:object_r:vendor_sysfs_ssr_toggle:s0
