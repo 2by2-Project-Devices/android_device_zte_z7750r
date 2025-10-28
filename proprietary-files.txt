@@ -162,6 +162,9 @@ vendor/firmware/aw881xx_acf.bin
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib/libbtnv.so
+vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
@@ -198,6 +201,9 @@ vendor/etc/camera/beautiful_fn/fn_default.xml
 vendor/etc/camera/camxoverridesettings.txt
 vendor/etc/init/camerahalvs.rc
 vendor/lib/libcamxexternalformatutils.so
+vendor/lib/libsns_fastRPC_util.so
+vendor/lib/libsnsapi.so
+vendor/lib/libsnsdiaglog.so
 vendor/lib/libswvdec.so
 vendor/lib64/camera/com.qti.eeprom.irs2381c_polar.so
 vendor/lib64/camera/com.qti.eeprom.truly_cmb433.so
@@ -297,8 +303,8 @@ vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.bitra.so
 vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/libFNVfbEngineHAL.so
-vendor/lib64/libZEffectLib.so
+vendor/lib64/libFNVfbEngineHAL.so;DISABLE_CHECKELF
+vendor/lib64/libZEffectLib.so;DISABLE_CHECKELF
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_dualcam_portraitlighting.so
 vendor/lib64/libarcsoft_dualcam_refocus_image.so
@@ -333,17 +339,24 @@ vendor/lib64/libchvs-bc.so
 vendor/lib64/libchvs-util.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libfnxml.so
+vendor/lib64/libimage_segment.so
+vendor/lib64/libimage_split.so
 vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libofflinelog.so
+vendor/lib64/libportrait_bokeh.so
+vendor/lib64/libpowercallback.so
+vendor/lib64/libpowercore.so
 vendor/lib64/libremosaic_wrapper.so
 vendor/lib64/libremosaiclib.so
-vendor/lib64/libskia.so
+vendor/lib64/libskia.so;MODULE=libskia-vendor
 vendor/lib64/libskia_watermark.so
 vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libswregistrationalgo.so
+vendor/lib64/libtensorflowlite.so
+vendor/lib64/libtensorflowlite_gpu_delegate.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.bitra.so|40115ec21ce315f567d59529e2fa30d5abae22da
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so|a32c1bf60af19f977a9743a326de16a340148869
 
@@ -412,6 +425,7 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/mutualex.rc
+vendor/lib/libxml.so
 vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
@@ -555,6 +569,63 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
+# GNSS
+vendor/app/CACertService/CACertService.apk
+vendor/bin/hw/android.hardware.gnss@2.1-service-qti
+vendor/bin/loc_launcher
+vendor/bin/lowi-server;DISABLE_CHECKELF
+vendor/bin/xtra-daemon
+vendor/etc/cacert_location.pem
+vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
+vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
+vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
+vendor/etc/xtra_root_cert.pem
+vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
+vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
+vendor/lib64/libaoa.so
+vendor/lib64/libbatching.so
+vendor/lib64/libcacertclient.so
+vendor/lib64/libdataitems.so
+vendor/lib64/libgdtap.so
+vendor/lib64/libgeofencing.so
+vendor/lib64/libgnss.so
+vendor/lib64/libgnsspps.so
+vendor/lib64/libgps.utils.so
+vendor/lib64/libizat_client_api.so
+vendor/lib64/libizat_core.so
+vendor/lib64/libjnihelper.so
+vendor/lib64/liblbs_core.so
+vendor/lib64/libloc_api_v02.so
+vendor/lib64/libloc_core.so
+vendor/lib64/libloc_socket.so
+vendor/lib64/liblocation_api.so
+vendor/lib64/liblocationservice.so
+vendor/lib64/liblocationservice_glue.so
+vendor/lib64/liblowi_client.so
+vendor/lib64/liblowi_wifihal.so
+vendor/lib64/libqcc_file_agent.so
+vendor/lib64/libqdma_file_agent.so
+vendor/lib64/libslimclient.so
+vendor/lib64/libxtadapter.so
+vendor/lib64/vendor.qti.gnss@1.0.so
+vendor/lib64/vendor.qti.gnss@1.1.so
+vendor/lib64/vendor.qti.gnss@1.2.so
+vendor/lib64/vendor.qti.gnss@2.0.so
+vendor/lib64/vendor.qti.gnss@2.1.so
+vendor/lib64/vendor.qti.gnss@3.0.so
+vendor/lib64/vendor.qti.gnss@4.0-service.so
+vendor/lib64/vendor.qti.gnss@4.0.so
+vendor/lib64/vendor.qti.hardware.cacert@1.0.so
+
+# GNSS configs
+vendor/etc/apdr.conf
+vendor/etc/flp.conf
+vendor/etc/gps.conf
+vendor/etc/izat.conf
+vendor/etc/lowi.conf
+vendor/etc/sap.conf
+vendor/etc/xtwifi.conf
+
 # Graphics (Adreno) - from smith - S2PS32M.57-23-31
 vendor/lib/egl/eglSubDriverAndroid.so|1a1c287a32095bede1cd199594cb7fb89c1c15d0
 vendor/lib/egl/libEGL_adreno.so;SYMLINK=vendor/lib/libEGL_adreno.so|4ee434ffeab2568d7187635adae39106ca6163bb
@@ -615,63 +686,6 @@ vendor/firmware/a650_zap.mdt
 # Graphics (Vulkan) - from smith - S2PS32M.57-23-31
 vendor/lib/hw/vulkan.adreno.so|6b6a82098b70ff03da65e98b3bb86e3afeb0e432
 vendor/lib64/hw/vulkan.adreno.so|ec8a2d6cc9e180f1e7fb34673c696870761a5f64
-
-# GNSS
-vendor/app/CACertService/CACertService.apk
-vendor/bin/hw/android.hardware.gnss@2.1-service-qti
-vendor/bin/loc_launcher
-vendor/bin/lowi-server;DISABLE_CHECKELF
-vendor/bin/xtra-daemon
-vendor/etc/cacert_location.pem
-vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
-vendor/etc/xtra_root_cert.pem
-vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
-vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
-vendor/lib64/libaoa.so
-vendor/lib64/libbatching.so
-vendor/lib64/libcacertclient.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libgdtap.so
-vendor/lib64/libgeofencing.so
-vendor/lib64/libgnss.so
-vendor/lib64/libgnsspps.so
-vendor/lib64/libgps.utils.so
-vendor/lib64/libizat_client_api.so
-vendor/lib64/libizat_core.so
-vendor/lib64/libjnihelper.so
-vendor/lib64/liblbs_core.so
-vendor/lib64/libloc_api_v02.so
-vendor/lib64/libloc_core.so
-vendor/lib64/libloc_socket.so
-vendor/lib64/liblocation_api.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libqcc_file_agent.so
-vendor/lib64/libqdma_file_agent.so
-vendor/lib64/libslimclient.so
-vendor/lib64/libxtadapter.so
-vendor/lib64/vendor.qti.gnss@1.0.so
-vendor/lib64/vendor.qti.gnss@1.1.so
-vendor/lib64/vendor.qti.gnss@1.2.so
-vendor/lib64/vendor.qti.gnss@2.0.so
-vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0.so
-vendor/lib64/vendor.qti.gnss@4.0-service.so
-vendor/lib64/vendor.qti.gnss@4.0.so
-vendor/lib64/vendor.qti.hardware.cacert@1.0.so
-
-# GNSS configs
-vendor/etc/apdr.conf
-vendor/etc/flp.conf
-vendor/etc/gps.conf
-vendor/etc/izat.conf
-vendor/etc/lowi.conf
-vendor/etc/sap.conf
-vendor/etc/xtwifi.conf
 
 # IFAA
 system/priv-app/AlipayService/AlipayService.apk
@@ -899,6 +913,7 @@ vendor/lib64/libqti-util.so
 vendor/bin/vendor.qti.qspmhal@1.0-service
 vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc
 vendor/etc/seccomp_policy/qspm.policy
+vendor/lib/vendor.qti.qspmhal@1.0.so
 vendor/lib64/vendor.qti.qspmhal@1.0-impl.so
 vendor/lib64/vendor.qti.qspmhal@1.0.so
 
@@ -952,6 +967,7 @@ vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
+vendor/lib/libqmi_legacy.so
 vendor/lib/libqmiservices.so
 vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
@@ -968,6 +984,7 @@ vendor/lib64/libqmi_client_qmux.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
+vendor/lib64/libqmi_legacy.so
 vendor/lib64/libqmiservices.so
 
 # RIL
@@ -1009,6 +1026,9 @@ vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
 vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
+vendor/lib/libconfigdb.so
+vendor/lib/libmdmdetect.so
+vendor/lib/libnetmgr.so
 vendor/lib64/deviceInfoServiceModule.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
@@ -1400,3 +1420,4 @@ vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfdutils_proprietary.so
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE=vendor.qti.hardware.wifidisplaysession@1.0-vendor
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
+vendor/lib64/libmmosal.so;MODULE=libmmosal-vendor
