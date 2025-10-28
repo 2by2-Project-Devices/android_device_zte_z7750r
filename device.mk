@@ -321,7 +321,6 @@ PRODUCT_PACKAGES += \
     fstab.default \
     fstab.emmc \
     init.audio.awinic.rc \
-    init.fingerprint.gf95xx.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
