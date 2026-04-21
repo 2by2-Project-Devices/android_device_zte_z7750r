@@ -179,7 +179,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.debug.trace.perf=1
 
 # Radio
-persist.radio.multisim.config=dsds
+persist.radio.multisim.config=ssss
 persist.radio.sap_silent_pin=true
 persist.vendor.radio.5g_icon_rule=D
 persist.vendor.radio.5g_mode_pref=0
