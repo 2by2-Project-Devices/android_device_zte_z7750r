@@ -156,10 +156,10 @@ vendor/firmware/tfa98xx.cnt
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so;DISABLE_CHECKELF
 vendor/lib/libbtnv.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so;DISABLE_CHECKELF
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
@@ -168,13 +168,13 @@ vendor/lib/btaudio_offload_if.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib/libbluetooth_audio_session_qti.so
+vendor/lib/libbluetooth_audio_session_qti.so;DISABLE_CHECKELF
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/btaudio_offload_if.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib64/libbluetooth_audio_session_qti.so
+vendor/lib64/libbluetooth_audio_session_qti.so;DISABLE_CHECKELF
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
 # Camera
@@ -253,23 +253,23 @@ vendor/lib64/camera/components/com.zte.node.realtimebokeh.so
 vendor/lib64/camera/components/com.zte.node.realtimepostprocess.so
 vendor/lib64/camera/components/com.zte.node.triplesat.so
 vendor/lib64/camera/components/com.zte.node.videopostprocess.so
-vendor/lib64/com.qti.feature2.anchorsync.so
-vendor/lib64/com.qti.feature2.demux.so
-vendor/lib64/com.qti.feature2.frameselect.so
-vendor/lib64/com.qti.feature2.fusion.so
-vendor/lib64/com.qti.feature2.generic.so
-vendor/lib64/com.qti.feature2.gs.so
-vendor/lib64/com.qti.feature2.hdr.so
-vendor/lib64/com.qti.feature2.memcpy.so
-vendor/lib64/com.qti.feature2.mfsr.so
-vendor/lib64/com.qti.feature2.qcfa.so
-vendor/lib64/com.qti.feature2.rawhdr.so
-vendor/lib64/com.qti.feature2.rt.so
-vendor/lib64/com.qti.feature2.serializer.so
-vendor/lib64/com.qti.feature2.stub.so
-vendor/lib64/com.qti.feature2.swmf.so
+vendor/lib64/com.qti.feature2.anchorsync.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.demux.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.frameselect.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.fusion.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.generic.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.gs.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.hdr.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.memcpy.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.mfsr.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.qcfa.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.rawhdr.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.rt.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.serializer.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.stub.so;DISABLE_CHECKELF
+vendor/lib64/com.qti.feature2.swmf.so;DISABLE_CHECKELF
 vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so
+vendor/lib64/hw/com.qti.chi.override.so;DISABLE_CHECKELF
 vendor/lib64/libFNVfbEngineHAL.so|cdcda4243bf955bad48e19e354948e2191840723
 vendor/lib64/libSNPE.so
 vendor/lib64/libZEffectLib.so|3bdbe8b97cf82b55e3702402550d7a899633952f
@@ -285,7 +285,7 @@ vendor/lib64/libcamxfdengine.so
 vendor/lib64/libcamxifestriping.so
 vendor/lib64/libcamximageformatutils.so
 vendor/lib64/libcamxmirror.so
-vendor/lib64/libcamxncs.so
+vendor/lib64/libcamxncs.so;DISABLE_CHECKELF
 vendor/lib64/libcamxportraitbokehwrap.so
 vendor/lib64/libcamxselfiebokeh.so
 vendor/lib64/libcamxskinbeautiful.so
@@ -303,7 +303,7 @@ vendor/lib64/libfnxml.so
 vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libofflinelog.so
-vendor/lib64/libportrait_bokeh.so
+vendor/lib64/libportrait_bokeh.so;DISABLE_CHECKELF
 vendor/lib64/libpowercallback.so
 vendor/lib64/libpowercore.so
 vendor/lib64/libremosaic_daemon.so
@@ -558,7 +558,7 @@ vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
 vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
 vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
 vendor/etc/xtra_root_cert.pem
-vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
+vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so;DISABLE_CHECKELF
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
 vendor/lib64/libaoa.so
 vendor/lib64/libbatching.so
@@ -618,25 +618,25 @@ vendor/lib/libadreno_utils.so|2dac2d87d0659ce438963e359b7262e14d5c31ff
 vendor/lib/libc2d30_bltlib.so|90766895641fbda817bb2818a0538cb66be62d8b
 vendor/lib/libgpudataproducer.so|a472512dc045e3c1ae39fbcc15d5b16e5c04bb8b
 vendor/lib/libgsl.so|6e93b01c566abd04497210c48eb608e3b8bd3456
-vendor/lib/libllvm-glnext.so|1ba7475a07eed4204d23ae77a65b6b1718bcf6c3
-vendor/lib/libllvm-qcom.so|b3de7da40d95ae3be6f2f46d5ddc221cb852efe8
+vendor/lib/libllvm-glnext.so;DISABLE_CHECKELF|1ba7475a07eed4204d23ae77a65b6b1718bcf6c3
+vendor/lib/libllvm-qcom.so;DISABLE_CHECKELF|b3de7da40d95ae3be6f2f46d5ddc221cb852efe8
 vendor/lib64/egl/eglSubDriverAndroid.so|0e0c4a1d9462c15e2b14d03b66bed51e85bd9e27
 vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so|a11a970b9621bb08ab6b8f60abb12c55b12ee55a
 vendor/lib64/egl/libGLESv1_CM_adreno.so|d22773a61614ac71cf68d874db66bbe7739761ce
 vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so|7e4aaf758aaba16a2ee8599ad1e7fca1e0d83650
 vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so|bbd2bdeb3d27461742b10490dc4d3f45379f276d
-vendor/lib64/egl/libq3dtools_esx.so|73fb2e9bddf6b0e9baa41b218e87ee6865301ecc
+vendor/lib64/egl/libq3dtools_esx.so;DISABLE_CHECKELF|73fb2e9bddf6b0e9baa41b218e87ee6865301ecc
 vendor/lib64/libC2D2.so|2f5bb4e82006bcc854aa468126bd3fffab339f67
 vendor/lib64/libCB.so|c74a7a7d1e35afe7000b4e0e1ee646d1c7160c03
 vendor/lib64/libOpenCL.so|ce96cb481976251b309fed436c28935bad5f3e64
-vendor/lib64/libVkLayer_q3dtools.so|701597bbdbacca42238cade811ec3416dcc203d5
+vendor/lib64/libVkLayer_q3dtools.so;DISABLE_CHECKELF|701597bbdbacca42238cade811ec3416dcc203d5
 vendor/lib64/libadreno_app_profiles.so|be3489392f712382042d6d0a1e769c70176d74e3
 vendor/lib64/libadreno_utils.so|9f2807e22aedd4e4c1cd354b281f10c160b594eb
 vendor/lib64/libc2d30_bltlib.so|6dfc4b3393a83113a91e2a3d8c2e4e58a62636dc
-vendor/lib64/libgpudataproducer.so|e67d8c3fcf91a3da4dffed3db0a44ba80bcacbf1
+vendor/lib64/libgpudataproducer.so;DISABLE_CHECKELF|e67d8c3fcf91a3da4dffed3db0a44ba80bcacbf1
 vendor/lib64/libgsl.so|9c66250055b483407dd45e8561f109f71c6057ab
-vendor/lib64/libllvm-glnext.so|a090b933ae1b0732b75b22107391f3ac565a5374
-vendor/lib64/libllvm-qcom.so|e4ff6f0d3cd3823fa65768b935adfe878a4bda7a
+vendor/lib64/libllvm-glnext.so;DISABLE_CHECKELF|a090b933ae1b0732b75b22107391f3ac565a5374
+vendor/lib64/libllvm-qcom.so;DISABLE_CHECKELF|e4ff6f0d3cd3823fa65768b935adfe878a4bda7a
 
 # Graphics (firmware)
 vendor/firmware/a615_zap.b00
@@ -762,14 +762,14 @@ vendor/lib/libminksocket.so
 vendor/lib64/libminksocket.so
 
 # Neural networks
-vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
+vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti;DISABLE_CHECKELF
 vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
 vendor/lib64/libhexagon_nn_stub.so
 vendor/lib64/libhta_hexagon_runtime.so
 vendor/lib64/unnhal-acc-adreno.so
 vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hta.so
-vendor/lib64/unnhal-acc-hvx.so
+vendor/lib64/unnhal-acc-hvx.so;DISABLE_CHECKELF
 
 # NFC
 vendor/bin/hw/android.hardware.nfc@1.2-service.cxd22xx
@@ -800,7 +800,7 @@ vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-util.so
-vendor/lib64/liblearningmodule.so
+vendor/lib64/liblearningmodule.so;DISABLE_CHECKELF
 vendor/lib64/libmeters.so
 vendor/lib64/libperfconfig.so
 vendor/lib64/libperfgluelayer.so
@@ -925,11 +925,11 @@ vendor/lib64/libnlnetmgr.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqcbor.so
-vendor/lib64/libqcrilFramework.so
+vendor/lib64/libqcrilFramework.so;DISABLE_CHECKELF
 vendor/lib64/libqcrildatactl.so
 vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
-vendor/lib64/libril-qc-hal-qmi.so
+vendor/lib64/libril-qc-hal-qmi.so;DISABLE_CHECKELF
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
@@ -939,7 +939,7 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libvendorutils.so
 vendor/lib64/qcrild_librilutils.so
 vendor/lib64/qtibus.so
-vendor/lib64/qtimutex.so
+vendor/lib64/qtimutex.so;DISABLE_CHECKELF
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so
@@ -977,12 +977,12 @@ vendor/lib/libsensorslog.so
 vendor/lib/libssc.so
 vendor/lib/libssc_default_listener.so
 vendor/lib/sensors.ssc.so
-vendor/lib64/libsensorcal.so
+vendor/lib64/libsensorcal.so;DISABLE_CHECKELF
 vendor/lib64/libsensorslog.so
 vendor/lib64/libsns_low_lat_stream_stub.so
-vendor/lib64/libssc.so
+vendor/lib64/libssc.so;DISABLE_CHECKELF
 vendor/lib64/libssc_default_listener.so
-vendor/lib64/sensors.ssc.so
+vendor/lib64/sensors.ssc.so;DISABLE_CHECKELF
 
 # Sensors configs
 vendor/etc/sensors/config/lito_ak991x_0.json
@@ -1110,8 +1110,8 @@ vendor/lib64/vendor.qti.hardware.vpp@1.3.so
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.2-service.widevine.xml
-vendor/lib64/libwvhidl.so|ad7b26bda12d643ee75bd05515c1255aefb28393
-vendor/lib64/mediadrm/libwvdrmengine.so
+vendor/lib64/libwvhidl.so;DISABLE_CHECKELF|ad7b26bda12d643ee75bd05515c1255aefb28393
+vendor/lib64/mediadrm/libwvdrmengine.so;DISABLE_CHECKELF
 
 # WiFi
 vendor/bin/cnss-daemon
