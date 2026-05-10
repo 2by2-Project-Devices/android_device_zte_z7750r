@@ -108,6 +108,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/unnhal-acc-hvx.so',
     ): blob_fixup()
         .add_needed('libcomparetf2_shim.so'),
+    'vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so': blob_fixup()
+        .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
