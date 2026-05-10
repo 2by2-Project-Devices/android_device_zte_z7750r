@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_tenet.mk
+    $(LOCAL_DIR)/lineage_z7750r.mk

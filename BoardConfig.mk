@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/zte/tenet
+DEVICE_PATH := device/zte/z7750r
 
 # A/B
 AB_OTA_UPDATER := true
@@ -41,7 +41,7 @@ AUDIO_FEATURE_ENABLED_SSR := false
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := tenet
+TARGET_BOOTLOADER_BOARD_NAME := z7750r
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
@@ -86,7 +86,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/zte/sm7250
-TARGET_KERNEL_CONFIG := vendor/tenet_defconfig
+TARGET_KERNEL_CONFIG := vendor/z7750r_defconfig
 
 # Kernel modules - Audio
 TARGET_MODULE_ALIASES += \
@@ -202,4 +202,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
-include vendor/zte/tenet/BoardConfigVendor.mk
+include vendor/zte/z7750r/BoardConfigVendor.mk

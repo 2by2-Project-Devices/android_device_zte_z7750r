@@ -13,7 +13,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/zte/tenet/tenet-vendor.mk)
+$(call inherit-product, vendor/zte/z7750r/z7750r-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.tenet
+    android.hardware.biometrics.fingerprint@2.3-service.z7750r
 
 # Bluetooth
 PRODUCT_PACKAGES += \

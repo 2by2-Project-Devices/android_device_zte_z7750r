@@ -19,7 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/zte/tenet',
+    'device/zte/z7750r',
     'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/commonsys/display',
@@ -71,7 +71,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'tenet',
+    'z7750r',
     'zte',
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,

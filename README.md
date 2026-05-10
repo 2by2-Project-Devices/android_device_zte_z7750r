@@ -1,7 +1,7 @@
 Device configuration for ZTE Axon 31 5G
 =========================================
 
-The ZTE Axon 31 5G (codenamed _"tenet"_) is a middle-end smartphone from ZTE.
+The ZTE Axon 31 5G (codenamed _"z7750r"_) is a middle-end smartphone from ZTE.
 
 It was announced in April 2021. Release date was May 2021.
 
