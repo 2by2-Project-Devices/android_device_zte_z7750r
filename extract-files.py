@@ -44,8 +44,8 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
         .add_needed('lib-imsvtshim.so'),
-    'system_ext/priv-app/ims/ims.apk': blob_fixup()
-        .apktool_patch('ims-patches'),
+    #'system_ext/priv-app/ims/ims.apk': blob_fixup()
+    #    .apktool_patch('ims-patches'),
     'vendor/lib64/libFNVfbEngineHAL.so': blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_describe')
@@ -68,6 +68,8 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('13 0A 00 94', '1F 20 03 D5'),
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
+    'vendor/lib64/libtsvideoprocess.so': blob_fixup()
+        .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
