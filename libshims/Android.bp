@@ -3,3 +3,9 @@ cc_library_shared {
     srcs: ["lib-imsvtshim.cpp"],
     system_ext_specific: true,
 }
+
+cc_library_shared {
+    name: "libshim_drm",
+    srcs: ["libshim_drm.cpp"],
+    vendor: true,
+}
