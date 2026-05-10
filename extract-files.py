@@ -112,6 +112,11 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     'vendor/bin/hw/android.hardware.drm@1.2-service.widevine': blob_fixup()
         .add_needed('libshim_drm.so'),
+    (
+        'vendor/etc/data/dsi_config.xml',
+        'vendor/etc/data/netmgr_config.xml',
+    ): blob_fixup()
+        .fix_xml(),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
