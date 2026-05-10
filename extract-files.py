@@ -69,7 +69,45 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
     'vendor/lib64/libtsvideoprocess.so': blob_fixup()
-        .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
+        .replace_needed('libstdc++.so', 'libstdc++_vendor.so')
+        .add_needed('libcomparetf2_shim.so'),
+    (
+        'vendor/lib64/com.qti.feature2.anchorsync.so',
+        'vendor/lib64/com.qti.feature2.demux.so',
+        'vendor/lib64/com.qti.feature2.frameselect.so',
+        'vendor/lib64/com.qti.feature2.fusion.so',
+        'vendor/lib64/com.qti.feature2.generic.so',
+        'vendor/lib64/com.qti.feature2.gs.so',
+        'vendor/lib64/com.qti.feature2.hdr.so',
+        'vendor/lib64/com.qti.feature2.memcpy.so',
+        'vendor/lib64/com.qti.feature2.mfsr.so',
+        'vendor/lib64/com.qti.feature2.qcfa.so',
+        'vendor/lib64/com.qti.feature2.rawhdr.so',
+        'vendor/lib64/com.qti.feature2.rt.so',
+        'vendor/lib64/com.qti.feature2.serializer.so',
+        'vendor/lib64/com.qti.feature2.stub.so',
+        'vendor/lib64/com.qti.feature2.swmf.so',
+        'vendor/lib64/egl/libq3dtools_esx.so',
+        'vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so',
+        'vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so',
+        'vendor/lib64/hw/com.qti.chi.override.so',
+        'vendor/lib64/libbluetooth_audio_session_qti.so',
+        'vendor/lib64/libcamxncs.so',
+        'vendor/lib64/libgpudataproducer.so',
+        'vendor/lib64/liblearningmodule.so',
+        'vendor/lib64/libportrait_bokeh.so',
+        'vendor/lib64/libqcrilFramework.so',
+        'vendor/lib64/libril-qc-hal-qmi.so',
+        'vendor/lib64/libsensorcal.so',
+        'vendor/lib64/libssc.so',
+        'vendor/lib64/libVkLayer_q3dtools.so',
+        'vendor/lib64/libwvhidl.so',
+        'vendor/lib64/mediadrm/libwvdrmengine.so',
+        'vendor/lib64/qtimutex.so',
+        'vendor/lib64/sensors.ssc.so',
+        'vendor/lib64/unnhal-acc-hvx.so',
+    ): blob_fixup()
+        .add_needed('libcomparetf2_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
