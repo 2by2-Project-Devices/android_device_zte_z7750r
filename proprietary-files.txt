@@ -659,7 +659,7 @@ vendor/lib/hw/vulkan.adreno.so|6b6a82098b70ff03da65e98b3bb86e3afeb0e432
 vendor/lib64/hw/vulkan.adreno.so|ec8a2d6cc9e180f1e7fb34673c696870761a5f64
 
 # IMS
-product/lib64/lib-imsvideocodec.so:system_ext/lib64/lib-imsvideocodec.so|041df54f896402392b4ace293c5b8aa455a7075c
+product/lib64/lib-imsvideocodec.so:system_ext/lib64/lib-imsvideocodec.so;DISABLE_CHECKELF|041df54f896402392b4ace293c5b8aa455a7075c
 product/lib64/lib-imsvt.so:system_ext/lib64/lib-imsvt.so
 product/lib64/lib-imsvtextutils.so:system_ext/lib64/lib-imsvtextutils.so
 product/lib64/lib-imsvtutils.so:system_ext/lib64/lib-imsvtutils.so
