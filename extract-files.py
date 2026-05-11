@@ -117,6 +117,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/etc/data/netmgr_config.xml',
     ): blob_fixup()
         .fix_xml(),
+    'system_ext/lib64/libdpmframework.so': blob_fixup()
+        .replace_needed('libhidltransport.so', 'libcutils-v29.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
