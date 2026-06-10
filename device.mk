@@ -292,7 +292,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc
 
 # Rootdir
@@ -305,7 +305,7 @@ PRODUCT_PACKAGES += \
     init.qti.media.sh
 
 PRODUCT_PACKAGES += \
-    fstab.default \
+    fstab.qcom \
     fstab.emmc \
     init.audio.awinic.rc \
     init.qcom.rc \
