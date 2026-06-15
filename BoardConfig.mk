@@ -87,7 +87,7 @@ BOARD_KERNEL_SEPARATED_DTBO := false
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --second_offset 0x00f00000
 TARGET_KERNEL_SOURCE := kernel/zte/sm7250
-TARGET_KERNEL_CONFIG := vendor/z7750r_defconfig
+TARGET_KERNEL_CONFIG := vendor/lito-perf_defconfig vendor/ZR01.config
 
 # Kernel - DTB/DTBO
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img
