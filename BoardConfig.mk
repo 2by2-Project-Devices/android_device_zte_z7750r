@@ -90,6 +90,8 @@ TARGET_KERNEL_SOURCE := kernel/zte/sm7250
 TARGET_KERNEL_CONFIG := vendor/lito-perf_defconfig vendor/ZR01.config
 
 # Kernel - DTB/DTBO
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)-kernel/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
