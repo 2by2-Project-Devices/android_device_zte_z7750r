@@ -87,16 +87,8 @@ BOARD_MKBOOTIMG_ARGS += --second_offset 0x00f00000
 TARGET_KERNEL_SOURCE := kernel/zte/sm7250
 TARGET_KERNEL_CONFIG := vendor/lito-perf_defconfig vendor/ZR01.config
 
-# Kill lineage kernel build task while preserving kernel
-TARGET_NO_KERNEL_OVERRIDE := true
-
 # Kernel - DTB/DTBO
-TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)-kernel/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img
-PRODUCT_COPY_FILES += \
-	$(TARGET_PREBUILT_KERNEL):kernel \
-    $(TARGET_PREBUILT_DTB):dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
 
