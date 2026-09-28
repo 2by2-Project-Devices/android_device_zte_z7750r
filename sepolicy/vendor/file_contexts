@@ -4,9 +4,6 @@
 # Logdump
 /logdump(/.*)?                                                             u:object_r:logdump_file:s0
 
-# NFC
-/dev/st21nfc                                                               u:object_r:nfc_device:s0
-
 # Partitions
 /dev/block/platform/soc/1d84000\.ufshc/by-name/logdump                     u:object_r:logdump_block_device:s0
 
