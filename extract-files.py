@@ -110,8 +110,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcomparetf2_shim.so'),
     'vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so': blob_fixup()
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
-    'vendor/bin/hw/android.hardware.drm@1.2-service.widevine': blob_fixup()
-        .add_needed('libshim_drm.so'),
     (
         'vendor/etc/data/dsi_config.xml',
         'vendor/etc/data/netmgr_config.xml',
