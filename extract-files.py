@@ -108,6 +108,10 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/unnhal-acc-hvx.so',
     ): blob_fixup()
         .add_needed('libcomparetf2_shim.so'),
+    'vendor/lib64/libril-qc-hal-qmi.so': blob_fixup()
+        .binary_regex_replace(b'android.hardware.radio.config@1.0.so', b'android.hardware.radio.c_shim@1.0.so')
+        .binary_regex_replace(b'android.hardware.radio.config@1.1.so', b'android.hardware.radio.c_shim@1.1.so')
+        .binary_regex_replace(b'android.hardware.radio.config@1.2.so', b'android.hardware.radio.c_shim@1.2.so'),
     'vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so': blob_fixup()
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     'vendor/bin/hw/android.hardware.drm@1.2-service.widevine': blob_fixup()
