@@ -776,6 +776,7 @@ vendor/lib64/unnhal-acc-hvx.so;DISABLE_CHECKELF
 # NFC
 vendor/bin/hw/android.hardware.nfc@1.2-service.cxd22xx
 vendor/etc/init/android.hardware.nfc@1.2-service.cxd22xx.rc
+vendor/etc/init/init.nfc_sony.rc
 
 # NFC configs
 vendor/etc/libnfc-nci.conf
