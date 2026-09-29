@@ -755,16 +755,3 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     ioprio rt 4
     task_profiles ProcessCapacityHigh HighPerformance
     onrestart restart audioserver
-
-# Add logger service for debugging
-on post-fs
-    rm /metadata/boot_log.txt
-    start logger
-
-on property:sys.boot_completed=1
-    stop logger
-
-service logger /system/bin/logcat -b all -D -f /metadata/boot_log.txt
-    class main
-    user root
-    group root system
