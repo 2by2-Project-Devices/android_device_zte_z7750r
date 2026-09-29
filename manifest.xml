@@ -72,39 +72,31 @@
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
         <fqname>@1.2::ISap/slot1</fqname>
-        <fqname>@1.2::ISap/slot2</fqname>
         <fqname>@1.5::IRadio/slot1</fqname>
-        <fqname>@1.5::IRadio/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.data</name>
         <fqname>IRadioData/slot1</fqname>
-        <fqname>IRadioData/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.messaging</name>
         <fqname>IRadioMessaging/slot1</fqname>
-        <fqname>IRadioMessaging/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.modem</name>
         <fqname>IRadioModem/slot1</fqname>
-        <fqname>IRadioModem/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.network</name>
         <fqname>IRadioNetwork/slot1</fqname>
-        <fqname>IRadioNetwork/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.sim</name>
         <fqname>IRadioSim/slot1</fqname>
-        <fqname>IRadioSim/slot2</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.voice</name>
         <fqname>IRadioVoice/slot1</fqname>
-        <fqname>IRadioVoice/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>lineage.hardware.radio.config</name>
@@ -122,7 +114,6 @@
         <interface>
             <name>ISecureElement</name>
             <instance>SIM1</instance>
-            <instance>SIM2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -249,7 +240,6 @@
         <interface>
             <name>IDataConnection</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -259,7 +249,6 @@
         <interface>
             <name>IIWlan</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -345,7 +334,6 @@
         <interface>
             <name>IQcRilAudio</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -394,7 +382,6 @@
         <interface>
             <name>IQtiRadio</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -404,7 +391,6 @@
         <interface>
             <name>IQtiRadio</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -565,7 +551,6 @@
         <interface>
             <name>IVendorRadio</name>
             <instance>slot1</instance>
-            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
