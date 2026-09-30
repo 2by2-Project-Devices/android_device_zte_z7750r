@@ -8,7 +8,7 @@
         {
             \"sim-slot-mappings\": [
                 {
-                    \"devices\":[\"z7750r\"],
+                    \"devices\":[\"Z7750R\"],
                     \"esim-slot-ids\": [0],
                     \"psim-slot-ids\": [1]
                 }
