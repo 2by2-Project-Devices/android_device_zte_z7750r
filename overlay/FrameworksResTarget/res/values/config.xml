@@ -30,8 +30,8 @@
     <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
     <integer-array name="config_udfps_sensor_props" translatable="false" >
         <item>540</item>  <!-- <item>sensorLocationX</item> -->
-        <item>2068</item> <!-- <item>sensorLocationY</item> -->
-        <item>94</item>  <!-- <item>sensorRadius</item> -->
+        <item>2163</item> <!-- <item>sensorLocationY</item> -->
+        <item>126</item>  <!-- <item>sensorRadius</item> -->
     </integer-array>
 
     <!-- The default refresh rate for a given device. Change this value to set a higher default
