@@ -23,6 +23,7 @@
 #include "BiometricsFingerprint.h"
 
 #include <inttypes.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #define CMD_FINGER_DOWN 1
@@ -31,6 +32,9 @@
 #define LCD_HBM_PATH "/proc/driver/lcd_hbm"
 #define LCD_HBM_ON "1"
 #define LCD_HBM_OFF "0"
+
+#define PERSIST_FP_PATH "/mnt/vendor/persist/fingerprint"
+#define PERSIST_FP_OVERLAY_PATH "/data/vendor/goodix/persist_fp"
 
 namespace android {
 namespace hardware {
@@ -213,6 +217,9 @@ Return<RequestStatus> BiometricsFingerprint::remove(uint32_t gid, uint32_t fid) 
 
 Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
         const hidl_string& storePath) {
+    if (!mDevice) {
+        return RequestStatus::SYS_EINVAL;
+    }
     if (storePath.size() >= PATH_MAX || storePath.size() <= 0) {
         ALOGE("Bad path length: %zd", storePath.size());
         return RequestStatus::SYS_EINVAL;
@@ -237,9 +244,24 @@ IBiometricsFingerprint* BiometricsFingerprint::getInstance() {
     return sInstance;
 }
 
+// The TA writes calibration into PERSIST_FP_PATH; never let it touch the real
+// persist partition, only the /data overlay bind-mounted on top of it.
+static bool isPersistOverlayMounted() {
+    struct stat persist, overlay;
+    if (stat(PERSIST_FP_PATH, &persist) || stat(PERSIST_FP_OVERLAY_PATH, &overlay)) {
+        return false;
+    }
+    return persist.st_dev == overlay.st_dev && persist.st_ino == overlay.st_ino;
+}
+
 fingerprint_device_t* BiometricsFingerprint::openHal() {
     int err;
     const hw_module_t *hw_mdl = nullptr;
+    if (!isPersistOverlayMounted()) {
+        ALOGE("%s is not bind-mounted from %s, refusing to start TA",
+              PERSIST_FP_PATH, PERSIST_FP_OVERLAY_PATH);
+        return nullptr;
+    }
     ALOGD("Opening fingerprint hal library...");
     if (0 != (err = hw_get_module(FINGERPRINT_HARDWARE_MODULE_ID, &hw_mdl))) {
         ALOGE("Can't open fingerprint HW Module, error: %d", err);

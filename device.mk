@@ -147,7 +147,8 @@ PRODUCT_COPY_FILES += \
 
 # Biometrics
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.z7750r
+    android.hardware.biometrics.fingerprint@2.3-service.z7750r \
+    GoodixCalibration
 
 # Bluetooth
 PRODUCT_PACKAGES += \

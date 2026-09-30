@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="app_name">指紋キャリブレーション</string>
+    <string name="calibration_title">指紋センサーのキャリブレーション</string>
+    <string name="calibration_summary">画面内指紋センサーを再校正します</string>
+
+    <string name="btn_start">開始</string>
+    <string name="btn_next">次へ</string>
+    <string name="btn_close">閉じる</string>
+
+    <string name="msg_intro">登録済みの指紋をすべて削除してから実行してください。端末を机の上に置いて動かさず、「開始」をタップします。</string>
+    <string name="msg_overlay_missing">校正データの保存先がマウントされていません。persistの工場データを守るため、校正を無効にしています。</string>
+    <string name="msg_daemon_missing">指紋サービスに接続できません。</string>
+    <string name="msg_running">実行中: %1$s</string>
+    <string name="msg_place_flesh">円の上に肌色（または白無地）の平らな対象物を、円が完全に隠れるように置いて「次へ」をタップしてください。</string>
+    <string name="msg_place_dark">円の上に黒色の平らな対象物を、円が完全に隠れるように置いて「次へ」をタップしてください。</string>
+    <string name="msg_place_chart">円の上にチャートを置いて「次へ」をタップしてください。</string>
+    <string name="msg_failed">%1$s に失敗しました（エラー 0x%2$s）。「開始」でやり直せます。</string>
+    <string name="msg_timeout">%1$s がタイムアウトしました。「開始」でやり直せます。</string>
+    <string name="msg_done">キャリブレーションが完了しました。指紋を登録する前に端末を再起動してください。</string>
+</resources>

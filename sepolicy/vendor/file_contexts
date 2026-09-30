@@ -1,6 +1,9 @@
 # Fingerprint
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.z7750r    u:object_r:hal_fingerprint_default_exec:s0
 
+# Goodix recalibration overlay for /mnt/vendor/persist/fingerprint
+/data/vendor/goodix/persist_fp(/.*)?                                        u:object_r:mnt_vendor_file:s0
+
 # Logdump
 /logdump(/.*)?                                                             u:object_r:logdump_file:s0
 
