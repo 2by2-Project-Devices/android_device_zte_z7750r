@@ -540,6 +540,16 @@ system/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|9fab80174db95e79a6cc3dad8c
 vendor/bin/feature_enabler_client
 vendor/etc/init/feature_enabler_client.rc
 
+# Felica
+system/app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
+system/etc/felica/common.cfg
+system/etc/felica/mfm.cfg
+system/etc/felica/mfs.cfg
+system/etc/permissions/com.felicanetworks.felica.xml
+system/etc/permissions/com.felicanetworks.felicaextra.xml
+system/framework/com.felicanetworks.felica.jar
+system/framework/com.felicanetworks.felicaextra.jar
+
 # Fingerprint
 vendor/lib64/hw/fingerprint.gf95xx.default.so:vendor/lib64/hw/fingerprint.gf95xx.so
 vendor/lib64/libgf_hal.so
