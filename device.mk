@@ -199,6 +199,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Felica
+-include packages/apps/FelicaService/device.mk
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
