@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The 2by2 Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Device-specific array of SIM slot indexes which are are embedded eUICCs. -->
+    <integer-array name="non_removable_euicc_slots">
+        <item>0</item>
+    </integer-array>
+</resources>
