@@ -12,10 +12,10 @@ diff --git a/smali/org/codeaurora/ims/ImsSenderRxr.smali b/smali/org/codeaurora/
 index c793760..dd61813 100644
 --- a/smali/org/codeaurora/ims/ImsSenderRxr.smali
 +++ b/smali/org/codeaurora/ims/ImsSenderRxr.smali
-@@ -2253,7 +2253,7 @@
+@@ -2099,7 +2099,7 @@
      .locals 1
  
-     .line 4210
+     .line 3952
 -    sget-boolean v0, Lcom/android/server/CrossContainerCommonUtils;->ZTE_FEATURE_FOR_CELL:Z
 +    const/4 v0, 0x0
  

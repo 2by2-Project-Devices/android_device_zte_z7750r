@@ -1,0 +1,30 @@
+From 8d77d7073d531c8b8c5204b47cb09dd01220c4fc Mon Sep 17 00:00:00 2001
+From: kailua <nattolecats@gmail.com>
+Date: Thu, 1 Oct 2026 17:58:51 +0900
+Subject: [PATCH] ImsCallSessionImpl: Skip isMxtelProject check in
+ handleClearCodeNotify
+
+com.zte.PlatformConfig does not exist outside of the stock framework,
+so ending a call crashes com.android.phone with NoClassDefFoundError.
+---
+ smali/org/codeaurora/ims/ImsCallSessionImpl.smali | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/smali/org/codeaurora/ims/ImsCallSessionImpl.smali b/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
+index a39309a..23cb85a 100644
+--- a/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
++++ b/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
+@@ -5935,9 +5935,7 @@
+     .param p1, "dc"    # Lorg/codeaurora/ims/DriverCallIms;
+ 
+     .line 3094
+-    invoke-static {}, Lcom/zte/PlatformConfig;->isMxtelProject()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     if-eqz v0, :cond_4
+ 
+-- 
+2.43.0
+
