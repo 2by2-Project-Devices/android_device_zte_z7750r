@@ -54,6 +54,28 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
     private static final int MSG_TEST_CMD = 1001;
     private static final int TOKEN_ERROR_CODE = 100;
     private static final int TOKEN_METADATA = 1210;
+    private static final int TOKEN_KB_STEP = 5307;
+    // GF_ERROR_TA_DEAD: the trustlet itself is gone, so every later command fails too and the
+    // session cannot be continued without restarting the HAL.
+    private static final int GF_ERROR_TA_DEAD = 1051;
+
+    // SZProductTest::testKbCalibration decodes [TOKEN_KB_STEP][step] as two uint32s and passes
+    // step to gfCaptureBaseThread. All four steps use a black target; only the panel brightness
+    // differs, so this path needs no white or chart fixture (cf.
+    // GxCalculateKBNoTestHead_Shenzhen). The step order below is what the TA actually logged as
+    // recode_<name>_step for each value, which is not the order the strings appear in the TA.
+    // The recode algo consumes four 86040-byte buffers: g_base_{black,light}_cube_with_
+    // {high,low}_bright. It solves gain from (light - black), so a run that keeps the sensor
+    // covered for every capture makes the light buffers equal the black ones and faults the
+    // trustlet. The sequence is therefore configurable at runtime, because which captures want
+    // the sensor covered is the one thing static analysis could not settle:
+    //   debug.goodixcal.kb_steps   e.g. "0,2,3"   (TA step values, each <= 3)
+    //   debug.goodixcal.kb_bright  e.g. "1,1,0"   (panel at HBM vs mid for that step)
+    //   debug.goodixcal.kb_prompt  e.g. "0,1,0"   (pause for the target to be changed first)
+    private static final int CMD_KB_CALIBRATION = 1551;
+    private static final String DEFAULT_KB_STEPS = "0,1,2,3";
+    private static final String DEFAULT_KB_BRIGHT = "1,1,1,0";
+    private static final String DEFAULT_KB_PROMPT = "0,0,0,0";
 
     private static final int CMD_FT_CAPTURE_DARK_BASE = 1556;
     private static final int CMD_FT_CAPTURE_H_DARK = 1557;
@@ -67,14 +89,25 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
     private static final int CMD_FT_SPI = 1569;
     private static final int CMD_FT_INIT = 1570;
     private static final int CMD_FT_EXIT = 1571;
+    // Computes the calibration from the captures held in the TA session and seals it to storage.
+    // Without this the captures are discarded at FT_EXIT and nothing is written.
+    private static final int CMD_FT_CALIBRATE = 1572;
     private static final int CMD_FT_MT_CHECK = 1573;
 
     // Panel backlight level ZTE uses for G3 sensors outside of HBM.
     private static final int G3_TEST_BRIGHTNESS = 178;
     private static final long STEP_DELAY_MS = 500;
     private static final long STEP_TIMEOUT_MS = 20000;
+    private static final long KB_STEP_TIMEOUT_MS = 90000;
 
-    private enum Prompt { NONE, FLESH, DARK, CHART }
+    private enum Prompt { NONE, FLESH, DARK, CHART, KB }
+
+    /**
+     * DARK_ONLY stops after the dark base capture: it needs no white or chart target, but it
+     * leaves the K/B gain and chart-derived parameters at their defaults. FULL runs the factory
+     * sequence.
+     */
+    private enum Mode { DARK_ONLY, FULL }
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
     private final Runnable mTimeout = this::onStepTimeout;
@@ -85,9 +118,15 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
     private TextView mTips;
     private TextView mLog;
     private Button mStartButton;
+    private Button mFullButton;
     private Button mNextButton;
 
+    private Mode mMode = Mode.DARK_ONLY;
     private Prompt mPrompt = Prompt.NONE;
+    private int mKbIndex = -1;
+    private int[] mKbSteps = {};
+    private boolean[] mKbBright = {};
+    private boolean[] mKbPrompt = {};
     private int mPendingCmd;
     private boolean mRunning;
     private int mSavedBrightnessMode = -1;
@@ -105,6 +144,7 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         if (!isOverlayMounted()) {
             mTips.setText(R.string.msg_overlay_missing);
             mStartButton.setEnabled(false);
+            mFullButton.setEnabled(false);
         } else {
             mTips.setText(R.string.msg_intro);
         }
@@ -148,8 +188,11 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         buttons.setOrientation(LinearLayout.HORIZONTAL);
         buttons.setGravity(Gravity.CENTER_HORIZONTAL);
         mStartButton = new Button(this);
-        mStartButton.setText(R.string.btn_start);
-        mStartButton.setOnClickListener(v -> start());
+        mStartButton.setText(R.string.btn_start_dark);
+        mStartButton.setOnClickListener(v -> start(Mode.DARK_ONLY));
+        mFullButton = new Button(this);
+        mFullButton.setText(R.string.btn_start_full);
+        mFullButton.setOnClickListener(v -> start(Mode.FULL));
         mNextButton = new Button(this);
         mNextButton.setText(R.string.btn_next);
         mNextButton.setEnabled(false);
@@ -158,6 +201,7 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         close.setText(R.string.btn_close);
         close.setOnClickListener(v -> finish());
         buttons.addView(mStartButton);
+        buttons.addView(mFullButton);
         buttons.addView(mNextButton);
         buttons.addView(close);
         LinearLayout.LayoutParams buttonsLp = new LinearLayout.LayoutParams(
@@ -180,7 +224,7 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         return root;
     }
 
-    private void start() {
+    private void start(Mode mode) {
         if (!isOverlayMounted()) {
             mTips.setText(R.string.msg_overlay_missing);
             return;
@@ -190,7 +234,17 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
             return;
         }
         mLog.setText("");
+        mMode = mode;
+        mKbIndex = -1;
+        log("mode " + mode);
+        try {
+            loadKbPlan();
+        } catch (RuntimeException e) {
+            mTips.setText(getString(R.string.msg_bad_kb_plan, e.toString()));
+            return;
+        }
         mStartButton.setEnabled(false);
+        mFullButton.setEnabled(false);
         mNextButton.setEnabled(false);
         mRunning = true;
         mPrompt = Prompt.NONE;
@@ -215,6 +269,9 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
                 setHbm(true);
                 sendDelayed(CMD_FT_CAPTURE_CHECKBOX);
                 break;
+            case KB:
+                sendKbStep();
+                break;
             default:
                 break;
         }
@@ -232,7 +289,12 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
                 send(CMD_FT_INIT, buildInitParam());
                 break;
             case CMD_FT_INIT:
-                prompt(Prompt.FLESH, R.string.msg_place_flesh);
+                if (mMode == Mode.DARK_ONLY) {
+                    // Skips auto-exposure, which the TA only runs with a flesh target present.
+                    prompt(Prompt.DARK, R.string.msg_place_dark);
+                } else {
+                    prompt(Prompt.FLESH, R.string.msg_place_flesh);
+                }
                 break;
             case CMD_FT_EXPO_AUTO_CALIBRATION:
                 send(CMD_FT_CAPTURE_H_FLESH, null);
@@ -256,13 +318,27 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
                 break;
             case CMD_FT_CAPTURE_DARK_BASE:
                 setBacklight(G3_TEST_BRIGHTNESS);
-                prompt(Prompt.CHART, R.string.msg_place_chart);
+                if (mMode == Mode.DARK_ONLY) {
+                    startKbStep(0);
+                } else {
+                    prompt(Prompt.CHART, R.string.msg_place_chart);
+                }
+                break;
+            case CMD_KB_CALIBRATION:
+                if (mKbIndex + 1 < mKbSteps.length) {
+                    startKbStep(mKbIndex + 1);
+                } else {
+                    finishRun(true);
+                }
                 break;
             case CMD_FT_CAPTURE_CHECKBOX:
                 setHbm(true);
                 sendDelayed(CMD_FT_CAPTURE_CHART);
                 break;
             case CMD_FT_CAPTURE_CHART:
+                sendDelayed(CMD_FT_CALIBRATE);
+                break;
+            case CMD_FT_CALIBRATE:
                 finishRun(true);
                 break;
             default:
@@ -273,6 +349,10 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
     @Override
     public void onDaemonMessage(int msgId, int cmdId, byte[] data) {
         if (msgId != MSG_TEST_CMD) {
+            // Logged rather than dropped silently: a command that answers on a different
+            // message id would otherwise look exactly like a timeout.
+            mHandler.post(() -> log("msg " + msgId + " cmd " + cmdId
+                    + " len " + (data == null ? 0 : data.length)));
             return;
         }
         mHandler.post(() -> onTestResult(cmdId, data));
@@ -287,6 +367,11 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         int error = parseErrorCode(data);
         log(cmdName(cmdId) + " -> 0x" + Integer.toHexString(error));
         if (error != 0) {
+            if (error == GF_ERROR_TA_DEAD) {
+                mTips.setText(getString(R.string.msg_ta_dead, cmdName(cmdId)));
+                finishRun(false);
+                return;
+            }
             if (cmdId == CMD_FT_CAPTURE_CHECKBOX || cmdId == CMD_FT_CAPTURE_CHART) {
                 // Keep the flesh/dark captures of this session and let the chart be re-seated.
                 setHbm(false);
@@ -323,6 +408,70 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         mHandler.postDelayed(() -> send(cmdId, null), STEP_DELAY_MS);
     }
 
+    private void loadKbPlan() {
+        mKbSteps = parseInts(SystemProperties.get("debug.goodixcal.kb_steps", DEFAULT_KB_STEPS));
+        mKbBright = parseFlags(
+                SystemProperties.get("debug.goodixcal.kb_bright", DEFAULT_KB_BRIGHT),
+                mKbSteps.length, true);
+        mKbPrompt = parseFlags(
+                SystemProperties.get("debug.goodixcal.kb_prompt", DEFAULT_KB_PROMPT),
+                mKbSteps.length, false);
+        StringBuilder plan = new StringBuilder("kb plan");
+        for (int i = 0; i < mKbSteps.length; i++) {
+            plan.append(' ').append(mKbSteps[i])
+                    .append(mKbBright[i] ? ":bright" : ":dim")
+                    .append(mKbPrompt[i] ? ":prompt" : "");
+        }
+        log(plan.toString());
+    }
+
+    private static int[] parseInts(String spec) {
+        String[] parts = spec.split(",");
+        int[] out = new int[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            out[i] = Integer.parseInt(parts[i].trim());
+        }
+        return out;
+    }
+
+    private static boolean[] parseFlags(String spec, int len, boolean fallback) {
+        String[] parts = spec.split(",");
+        boolean[] out = new boolean[len];
+        for (int i = 0; i < len; i++) {
+            out[i] = i < parts.length ? "1".equals(parts[i].trim()) : fallback;
+        }
+        return out;
+    }
+
+    private void startKbStep(int index) {
+        mKbIndex = index;
+        if (mKbPrompt[index]) {
+            prompt(Prompt.KB, R.string.msg_kb_change_target);
+            return;
+        }
+        sendKbStep();
+    }
+
+    private void sendKbStep() {
+        int index = mKbIndex;
+        int step = mKbSteps[index];
+        boolean bright = mKbBright[index];
+        if (bright) {
+            setHbm(true);
+        } else {
+            setHbm(false);
+            setBacklight(G3_TEST_BRIGHTNESS);
+        }
+        log("kb step " + step + " (" + (index + 1) + "/" + mKbSteps.length + ") "
+                + (bright ? "bright" : "dim"));
+        mHandler.postDelayed(() -> send(CMD_KB_CALIBRATION, buildKbParam(step)), STEP_DELAY_MS);
+    }
+
+    private static byte[] buildKbParam(int step) {
+        return ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN)
+                .putInt(TOKEN_KB_STEP).putInt(step).array();
+    }
+
     private void send(int cmdId, byte[] param) {
         if (!mRunning) {
             return;
@@ -330,7 +479,9 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         mPendingCmd = cmdId;
         mTips.setText(getString(R.string.msg_running, cmdName(cmdId)));
         log("send " + cmdName(cmdId));
-        mHandler.postDelayed(mTimeout, STEP_TIMEOUT_MS);
+        // The TA sleeps and re-exposes inside a K/B step, so it needs a longer leash.
+        mHandler.postDelayed(mTimeout,
+                cmdId == CMD_KB_CALIBRATION ? KB_STEP_TIMEOUT_MS : STEP_TIMEOUT_MS);
         mWorker.post(() -> {
             int result = mDaemon.sendCommand(cmdId, param);
             if (result != 0) {
@@ -361,8 +512,16 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
         mPrompt = Prompt.NONE;
         mNextButton.setEnabled(false);
         mStartButton.setEnabled(true);
+        mFullButton.setEnabled(true);
         if (success) {
-            mTips.setText(R.string.msg_done);
+            // The TA only seals data on some paths, so report what actually landed on storage
+            // rather than claiming success for a sequence that wrote nothing.
+            String[] written = new java.io.File(PERSIST_FP_OVERLAY).list();
+            if (written != null && written.length > 0) {
+                mTips.setText(getString(R.string.msg_done, String.join(", ", written)));
+            } else {
+                mTips.setText(R.string.msg_done_nodata);
+            }
         }
     }
 
@@ -480,6 +639,8 @@ public class CalibrationActivity extends Activity implements GoodixDaemon.Listen
             case CMD_FT_CAPTURE_DARK_BASE: return "DARK_BASE";
             case CMD_FT_CAPTURE_CHECKBOX: return "CALIBRATE_CHART";
             case CMD_FT_CAPTURE_CHART: return "CAPTURE_CHART";
+            case CMD_FT_CALIBRATE: return "FT_CALIBRATE";
+            case CMD_KB_CALIBRATION: return "KB_CALIBRATION";
             case CMD_FT_EXIT: return "FT_EXIT";
             default: return String.valueOf(cmdId);
         }

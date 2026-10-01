@@ -8,11 +8,12 @@
     <string name="calibration_title">Fingerprint sensor calibration</string>
     <string name="calibration_summary">Recalibrate the in-display fingerprint sensor</string>
 
-    <string name="btn_start">Start</string>
+    <string name="btn_start_dark">Dark only</string>
+    <string name="btn_start_full">Full</string>
     <string name="btn_next">Next</string>
     <string name="btn_close">Close</string>
 
-    <string name="msg_intro">Remove all enrolled fingerprints before calibrating. Keep the device still on a table, then tap Start.</string>
+    <string name="msg_intro">Remove all enrolled fingerprints before calibrating. Keep the device still on a table. "Dark only" needs just a black target; "Full" also needs a white and a chart target.</string>
     <string name="msg_overlay_missing">Calibration storage is not mounted. Calibration is disabled to protect the factory data in persist.</string>
     <string name="msg_daemon_missing">Fingerprint service is not available.</string>
     <string name="msg_running">Running: %1$s</string>
@@ -21,5 +22,9 @@
     <string name="msg_place_chart">Place the chart target over the circle, then tap Next.</string>
     <string name="msg_failed">Step %1$s failed (error 0x%2$s). Tap Start to retry.</string>
     <string name="msg_timeout">Step %1$s timed out. Tap Start to retry.</string>
-    <string name="msg_done">Calibration finished. Reboot the device before enrolling fingerprints.</string>
+    <string name="msg_done">Calibration written (%1$s). Reboot the device before enrolling fingerprints.</string>
+    <string name="msg_done_nodata">Sequence completed but the TA wrote no calibration data. Try the full run.</string>
+    <string name="msg_ta_dead">%1$s killed the fingerprint trustlet. Reboot (or restart the fingerprint HAL) before retrying.</string>
+    <string name="msg_kb_change_target">Change the target as planned for this step, then tap Next.</string>
+    <string name="msg_bad_kb_plan">Bad debug.goodixcal.kb_* property: %1$s</string>
 </resources>
