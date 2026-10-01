@@ -331,7 +331,6 @@ vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so|a32c1bf60af
 vendor/firmware/CAMERA_ICP.elf
 
 # CDSP
-vendor/bin/cdsprpcd
 vendor/lib/libcdsprpc.so
 vendor/lib/libfastcrc.so
 vendor/lib/libfastcvdsp_stub.so
@@ -339,13 +338,17 @@ vendor/lib/libfastcvopt.so
 vendor/lib/libmdsprpc.so
 vendor/lib/libsdsprpc.so
 vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib64/libcdsp_default_listener.so
-vendor/lib64/libcdsprpc.so
 vendor/lib64/libfastcvdsp_stub.so
 vendor/lib64/libfastcvopt.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 vendor/lib64/libsysmon_cdsp_skel.so
+
+# CDSP - from smith - S2PS32M.57-23-31
+vendor/bin/cdsprpcd|2257675e907dce9ed4a328d66caae44096221bb8
+vendor/lib64/libcdsp_default_listener.so|23a8dff8e8ab66d23c5de9aa3574dd3c64d113b4
+vendor/lib64/libcdsprpc.so|b4ded476175bbe926e8cedd3a7db1e3aac9a6de0
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|34a1983ab1a33cab7e88d874c3588f85fbdf0ecf
 
 # Charger (HVDCP)
 vendor/bin/hvdcp_opti
